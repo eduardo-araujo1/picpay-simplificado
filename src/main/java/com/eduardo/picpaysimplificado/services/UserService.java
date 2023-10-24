@@ -5,6 +5,9 @@ import com.eduardo.picpaysimplificado.domain.user.UserDTO;
 import com.eduardo.picpaysimplificado.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -18,5 +21,9 @@ public class UserService {
         User newUser = new User(user);
         this.saveUser(newUser);
         return newUser;
+    }
+
+    public List<User> getAllUsers() {
+        return this.repository.findAll();
     }
 }
